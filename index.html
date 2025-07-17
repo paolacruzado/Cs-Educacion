@@ -2,13 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Malla Curricular Interactiva</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Malla Curricular Carrera Ciencias de la Educación</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f6fa;
-      color: #fff;
+      color: #333;
       padding: 20 px;
     }
 
@@ -18,99 +17,141 @@
 
     .materia {
       background-color: #205081;
+      color: white;
       border-radius: 10 px;
-      padding: 15 px;
-      margin-bottom: 10 px;
+      padding: 10 px 15 px;
+      margin: 8 px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       cursor: pointer;
-      transition: background-color 0.3 s ease;
+      transition: background-color 0.3s ease;
     }
 
-    .materia:hover {
-      background-color: #1b3e66;
-    }
-
-    .resaltado {
+    .materia.habilitada {
       background-color: #3b83bd;
       font-weight: bold;
     }
 
-    .tachado {
+    .materia.aprobada {
       text-decoration: line-through;
-      opacity: 0.7;
+      opacity: 0.6;
+    }
+
+    input[type="checkbox"] {
+      transform: scale (1.2);
+      margin-left: 10 px;
     }
   </style>
 </head>
 <body>
-  <h1>Malla Curricular Interactiva</h1>
-  <div id="contenedor-materias">
-    <h2>Primer Semestre</h2>
-    <div class="materia" id="edu100" data-prerreq="">EDU-100 Fundamentos de la Investigación</div>
-    <div class="materia" id="edu101" data-prerreq="">EDU-101 Estadística Educativa</div>
-    <div class="materia" id="edu102" data-prerreq="">EDU-102 Epistemología de la Educación</div>
-    <div class="materia" id="edu103" data-prerreq="">EDU-103 Desarrollo Humano y Educación de la Niñez y la Adolescencia</div>
-    <div class="materia" id="edu104" data-prerreq="">EDU-104 Historia de la Educación</div>
-    <div class="materia" id="mat1" data-prerreq="">Mat Tec. I</div>
-
-    <h2>Segundo Semestre</h2>
-    <div class="materia" id="edu105" data-prerreq="edu100,edu101">EDU-105 Investigación Educativa Cuantitativa</div>
-    <div class="materia" id="edu106" data-prerreq="edu101">EDU-106 Estadística Educativa II</div>
-    <div class="materia" id="edu107" data-prerreq="edu102">EDU-107 Filosofía de la Educación</div>
-    <div class="materia" id="edu108" data-prerreq="edu103">EDU-108 Desarrollo Humano y Educación de la Juventud y el Adulto</div>
-    <div class="materia" id="edu109" data-prerreq="edu104">EDU-109 Legislación Educativa y Aplicada</div>
-    <div class="materia" id="mat2" data-prerreq="mat1">Mat Tec. II</div>
-    <div class="materia" id="idioma1" data-prerreq="">Idioma I</div>
-
-    <h2>Tercer Semestre</h2>
-    <div class="materia" id="edu110" data-prerreq="edu105">EDU-110 Investigación Educativa Cualitativa</div>
-    <div class="materia" id="edu111" data-prerreq="edu105,edu106">EDU-111 Informática aplicada a la Investigación</div>
-    <div class="materia" id="edu112" data-prerreq="edu107">EDU-112 Pedagogía</div>
-    <div class="materia" id="edu113" data-prerreq="edu107">EDU-113 Didáctica General</div>
-    <div class="materia" id="edu114" data-prerreq="edu108">EDU-114 Psicología Educativa I</div>
-    <div class="materia" id="mat3" data-prerreq="mat2">Mat Tec. III</div>
-    <div class="materia" id="idioma2" data-prerreq="idioma1">Idioma II</div>
-
-    <h2>Cuarto Semestre</h2>
-    <div class="materia" id="edu115" data-prerreq="edu110,edu111">EDU-115 Investigación Educativa Mixta</div>
-    <div class="materia" id="edu116" data-prerreq="edu112,edu113">EDU-116 Didáctica Socio Crítica</div>
-    <div class="materia" id="edu117" data-prerreq="edu113">EDU-117 Educación de la Diversidad</div>
-    <div class="materia" id="edu118" data-prerreq="edu114">EDU-118 Psicología Educativa II</div>
-    <div class="materia" id="edu119" data-prerreq="edu109">EDU-119 Sociología de la Educación</div>
-    <div class="materia" id="mat4" data-prerreq="mat3">Mat Tec. IV</div>
-    <div class="materia" id="idioma3" data-prerreq="idioma2">Idioma III</div>
-
-    <h2>Quinto Semestre</h2>
-    <div class="materia" id="edu120" data-prerreq="edu115">EDU-120 Diagnóstico Educativo Institucional</div>
-    <div class="materia" id="edu121" data-prerreq="edu116,edu119">EDU-121 Diseño Curricular</div>
-    <div class="materia" id="edu122" data-prerreq="edu112,edu113">EDU-122 Evaluación de Aprendizajes</div>
-    <div class="materia" id="edu123" data-prerreq="edu118">EDU-123 Diagnóstico Psicopedagógico</div>
-    <div class="materia" id="edu124" data-prerreq="edu119">EDU-124 Antropología de la Educación</div>
-    <div class="materia" id="mat5" data-prerreq="mat4">Mat Tec. V</div>
-    <div class="materia" id="idioma4" data-prerreq="idioma3">Idioma IV</div>
-
-    <h2>Sexto Semestre</h2>
-    <div class="materia" id="edu125" data-prerreq="edu120">EDU-125 Sistematización de Experiencias Educativas</div>
-    <div class="materia" id="edu126" data-prerreq="edu121">EDU-126 Desarrollo y Evaluación Curricular</div>
-    <div class="materia" id="edu127" data-prerreq="edu121">EDU-127 Proyectos Educativos Institucionales</div>
-    <div class="materia" id="edu128" data-prerreq="edu123">EDU-128 Neurociencias y Educación</div>
-    <div class="materia" id="edu129" data-prerreq="edu124">EDU-129 Educación Internacionalizada</div>
-    <div class="materia" id="mat6" data-prerreq="mat5">Mat Tec. VI</div>
-    <div class="materia" id="edu700" data-prerreq="edu100,edu101,edu102,edu103,edu104,mat1,edu105,edu106,edu107,edu108,edu109,mat2,idioma1,edu110,edu111,edu112,edu113,edu114,mat3,idioma2,edu115,edu116,edu117,edu118,edu119,mat4,idioma3,edu120,edu121,edu122,edu123,edu124,mat5,idioma4">EDU-700 Práctica Profesional I</div>
-  </div>
+  <h1>Malla Curricular Carrera Ciencias de la Educación</h1>
+  <div id="contenedor-materias"></div>
 
   <script>
-    document.querySelectorAll(".materia").forEach(m => {
-      m.addEventListener("click", () => {
-        document.querySelectorAll(".materia").forEach(el => el.classList.remove("resaltado", "tachado"));
+    const materias = [
+      { id: "edu100", nombre: "EDU-100 Fundamentos de la Investigación", prereq: [], semestre: 1 },
+      { id: "edu101", nombre: "EDU-101 Estadística Educativa", prereq: [], semestre: 1 },
+      { id: "edu102", nombre: "EDU-102 Epistemología de la Educación", prereq: [], semestre: 1 },
+      { id: "edu103", nombre: "EDU-103 Desarrollo Humano y Educación de la Niñez y la Adolescencia", prereq: [], semestre: 1 },
+      { id: "edu104", nombre: "EDU-104 Historia de la Educación", prereq: [], semestre: 1 },
+      { id: "mat1", nombre: "Mat Tec. I", prereq: [], semestre: 1 },
 
-        m.classList.add("resaltado", "tachado");
+      { id: "edu105", nombre: "EDU-105 Investigación Educativa Cuantitativa", prereq: ["edu100", "edu101"], semestre: 2 },
+      { id: "edu106", nombre: "EDU-106 Estadística Educativa II", prereq: ["edu101"], semestre: 2 },
+      { id: "edu107", nombre: "EDU-107 Filosofía de la Educación", prereq: ["edu102"], semestre: 2 },
+      { id: "edu108", nombre: "EDU-108 Desarrollo Humano y Educación de la Juventud y el Adulto", prereq: ["edu103"], semestre: 2 },
+      { id: "edu109", nombre: "EDU-109 Legislación Educativa y Aplicada", prereq: ["edu104"], semestre: 2 },
+      { id: "mat2", nombre: "Mat Tec. II", prereq: ["mat1"], semestre: 2 },
+      { id: "idioma1", nombre: "Idioma I", prereq: [], semestre: 2 },
 
-        const prereqs = m.dataset.prerreq.split(",");
-        prereqs.forEach(id => {
-          const el = document.getElementById(id.trim());
-          if (el) el.classList.add("resaltado");
+      { id: "edu110", nombre: "EDU-110 Investigación Educativa Cualitativa", prereq: ["edu105"], semestre: 3 },
+      { id: "edu111", nombre: "EDU-111 Informática aplicada a la Investigación", prereq: ["edu105", "edu106"], semestre: 3 },
+      { id: "edu112", nombre: "EDU-112 Pedagogía", prereq: ["edu107"], semestre: 3 },
+      { id: "edu113", nombre: "EDU-113 Didáctica General", prereq: ["edu107"], semestre: 3 },
+      { id: "edu114", nombre: "EDU-114 Psicología Educativa I", prereq: ["edu108"], semestre: 3 },
+      { id: "mat3", nombre: "Mat Tec. III", prereq: ["mat2"], semestre: 3 },
+      { id: "idioma2", nombre: "Idioma II", prereq: ["idioma1"], semestre: 3 },
+
+      { id: "edu115", nombre: "EDU-115 Investigación Educativa Mixta", prereq: ["edu110", "edu111"], semestre: 4 },
+      { id: "edu116", nombre: "EDU-116 Didáctica Socio Crítica", prereq: ["edu112", "edu113"], semestre: 4 },
+      { id: "edu117", nombre: "EDU-117 Educación de la Diversidad", prereq: ["edu113"], semestre: 4 },
+      { id: "edu118", nombre: "EDU-118 Psicología Educativa II", prereq: ["edu114"], semestre: 4 },
+      { id: "edu119", nombre: "EDU-119 Sociología de la Educación", prereq: ["edu109"], semestre: 4 },
+      { id: "mat4", nombre: "Mat Tec. IV", prereq: ["mat3"], semestre: 4 },
+      { id: "idioma3", nombre: "Idioma III", prereq: ["idioma2"], semestre: 4 },
+
+      { id: "edu120", nombre: "EDU-120 Diagnóstico Educativo Institucional", prereq: ["edu115"], semestre: 5 },
+      { id: "edu121", nombre: "EDU-121 Diseño Curricular", prereq: ["edu116", "edu119"], semestre: 5 },
+      { id: "edu122", nombre: "EDU-122 Evaluación de Aprendizajes", prereq: ["edu112", "edu113"], semestre: 5 },
+      { id: "edu123", nombre: "EDU-123 Diagnóstico Psicopedagógico", prereq: ["edu118"], semestre: 5 },
+      { id: "edu124", nombre: "EDU-124 Antropología de la Educación", prereq: ["edu119"], semestre: 5 },
+      { id: "mat5", nombre: "Mat Tec. V", prereq: ["mat4"], semestre: 5 },
+      { id: "idioma4", nombre: "Idioma IV", prereq: ["idioma3"], semestre: 5 },
+
+      { id: "edu125", nombre: "EDU-125 Sistematización de Experiencias Educativas", prereq: ["edu120"], semestre: 6 },
+      { id: "edu126", nombre: "EDU-126 Desarrollo y Evaluación Curricular", prereq: ["edu121"], semestre: 6 },
+      { id: "edu127", nombre: "EDU-127 Proyectos Educativos Institucionales", prereq: ["edu121"], semestre: 6 },
+      { id: "edu128", nombre: "EDU-128 Neurociencias y Educación", prereq: ["edu123"], semestre: 6 },
+      { id: "edu129", nombre: "EDU-129 Educación Internacionalizada", prereq: ["edu124"], semestre: 6 },
+      { id: "mat6", nombre: "Mat Tec. VI", prereq: ["mat5"], semestre: 6 },
+      {
+        id: "edu700",
+        nombre: "EDU-700 Práctica Profesional I",
+        prereq: materias => materias.filter(m => m.semestre <= 5).map(m => m.id),
+        semestre: 6
+      }
+    ];
+
+    const aprobadas = new Set();
+
+    const contenedor = document.getElementById('contenedor-materias');
+
+    function render() {
+      contenedor.innerHTML = '';
+      for (let s = 1; s <= 6; s++) {
+        const h2 = document.createElement('h2');
+        h2.textContent = `Semestre ${s}`;
+        contenedor.appendChild(h2);
+
+        materias.filter(m => m.semestre === s).forEach(mat => {
+          const div = document.createElement('div');
+          div.classList.add('materia');
+
+          const label = document.createElement('label');
+          label.textContent = mat.nombre;
+
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.checked = aprobadas.has(mat.id);
+
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+              aprobadas.add(mat.id);
+            } else {
+              aprobadas.delete(mat.id);
+            }
+            render();
+          });
+
+          // Calcular prerrequisitos
+          let requisitos = mat.prereq;
+          if (typeof requisitos === 'function') {
+            requisitos = requisitos(materias);
+          }
+
+          const habilitada = requisitos.every(pr => aprobadas.has(pr));
+          if (aprobadas.has(mat.id)) div.classList.add('aprobada');
+          else if (habilitada) div.classList.add('habilitada');
+
+          div.appendChild(label);
+          div.appendChild(checkbox);
+          contenedor.appendChild(div);
         });
-      });
-    });
+      }
+    }
+
+    render();
   </script>
 </body>
 </html>
