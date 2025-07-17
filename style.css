@@ -1,5 +1,5 @@
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background-color: #f4f6fa;
   color: #fff;
   padding: 20px;
@@ -22,10 +22,7 @@ h1, h2 {
   background-color: #1b3e66;
 }
 
-.correlativas {
-  display: none;
-  margin-top: 10px;
-  padding-left: 10px;
-  font-size: 0.9em;
-  color: #e0e0e0;
+.materia.resaltado {
+  background-color: #3b83bd !important;
+  font-weight: bold;
 }
