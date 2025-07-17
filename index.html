@@ -8,24 +8,9 @@
 <body>
   <h1>Malla Curricular Interactiva</h1>
 
-  <h2>Primer Semestre</h2>
-  <div class="materia" id="edu100" onclick="resaltarPrerrequisitos('edu100')">EDU-100 Fundamentos de la Investigación</div>
-  <div class="materia" id="edu101" onclick="resaltarPrerrequisitos('edu101')">EDU-101 Estadística Educativa</div>
-  <div class="materia" id="edu102" onclick="resaltarPrerrequisitos('edu102')">EDU-102 Epistemología de la Educación</div>
-  <div class="materia" id="edu103" onclick="resaltarPrerrequisitos('edu103')">EDU-103 Desarrollo Humano y Educación de la Niñez y la Adolescencia</div>
-  <div class="materia" id="edu104" onclick="resaltarPrerrequisitos('edu104')">EDU-104 Historia de la Educación</div>
-  <div class="materia" id="mat1" onclick="resaltarPrerrequisitos('mat1')">Mat Tec. I</div>
-
-  <h2>Segundo Semestre</h2>
-  <div class="materia" id="edu105" onclick="resaltarPrerrequisitos('edu105')" data-prerreq="edu100,edu101">EDU-105 Investigación Educativa Cuantitativa</div>
-  <div class="materia" id="edu106" onclick="resaltarPrerrequisitos('edu106')" data-prerreq="edu101">EDU-106 Estadística Educativa II</div>
-  <div class="materia" id="edu107" onclick="resaltarPrerrequisitos('edu107')" data-prerreq="edu102">EDU-107 Filosofía de la Educación</div>
-  <div class="materia" id="edu108" onclick="resaltarPrerrequisitos('edu108')" data-prerreq="edu103">EDU-108 Desarrollo Humano y Educación de la Juventud y el Adulto</div>
-  <div class="materia" id="edu109" onclick="resaltarPrerrequisitos('edu109')" data-prerreq="edu104">EDU-109 Legislación Educativa y Aplicada</div>
-  <div class="materia" id="mat2" onclick="resaltarPrerrequisitos('mat2')" data-prerreq="mat1">Mat Tec. II</div>
-  <div class="materia" id="idioma1" onclick="resaltarPrerrequisitos('idioma1')">Idioma I</div>
-
-  <!-- Puedes seguir con más materias aquí abajo agregando el id y data-prerreq como los de arriba -->
+  <div id="contenedor-materias">
+    <!-- Se insertarán dinámicamente aquí las materias -->
+  </div>
 
   <script src="script.js"></script>
 </body>
