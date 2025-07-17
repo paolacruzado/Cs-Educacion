@@ -4,14 +4,113 @@
   <meta charset="UTF-8" />
   <title>Malla Curricular Interactiva</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6fa;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      color: #0a2e57;
+    }
+
+    .materia {
+      background-color: #205081;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .materia:hover {
+      background-color: #1b3e66;
+    }
+
+    .resaltado {
+      background-color: #3b83bd !important;
+      font-weight: bold;
+    }
+
+    .tachado {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
   <h1>Malla Curricular Interactiva</h1>
+  <div id="contenedor-materias">
+    <h2>Primer Semestre</h2>
+    <div class="materia" id="edu100" data-prerreq="">EDU-100 Fundamentos de la Investigación</div>
+    <div class="materia" id="edu101" data-prerreq="">EDU-101 Estadística Educativa</div>
+    <div class="materia" id="edu102" data-prerreq="">EDU-102 Epistemología de la Educación</div>
+    <div class="materia" id="edu103" data-prerreq="">EDU-103 Desarrollo Humano y Educación de la Niñez y la Adolescencia</div>
+    <div class="materia" id="edu104" data-prerreq="">EDU-104 Historia de la Educación</div>
+    <div class="materia" id="mat1" data-prerreq="">Mat Tec. I</div>
 
-  <!-- Aquí se cargarán dinámicamente los semestres y materias -->
-  <div id="contenedor-materias"></div>
+    <h2>Segundo Semestre</h2>
+    <div class="materia" id="edu105" data-prerreq="edu100,edu101">EDU-105 Investigación Educativa Cuantitativa</div>
+    <div class="materia" id="edu106" data-prerreq="edu101">EDU-106 Estadística Educativa II</div>
+    <div class="materia" id="edu107" data-prerreq="edu102">EDU-107 Filosofía de la Educación</div>
+    <div class="materia" id="edu108" data-prerreq="edu103">EDU-108 Desarrollo Humano y Educación de la Juventud y el Adulto</div>
+    <div class="materia" id="edu109" data-prerreq="edu104">EDU-109 Legislación Educativa y Aplicada</div>
+    <div class="materia" id="mat2" data-prerreq="mat1">Mat Tec. II</div>
+    <div class="materia" id="idioma1" data-prerreq="">Idioma I</div>
 
-  <!-- Cargamos el script después de todo el HTML -->
-  <script src="script.js"></script>
+    <h2>Tercer Semestre</h2>
+    <div class="materia" id="edu110" data-prerreq="edu105">EDU-110 Investigación Educativa Cualitativa</div>
+    <div class="materia" id="edu111" data-prerreq="edu105,edu106">EDU-111 Informática aplicada a la Investigación</div>
+    <div class="materia" id="edu112" data-prerreq="edu107">EDU-112 Pedagogía</div>
+    <div class="materia" id="edu113" data-prerreq="edu107">EDU-113 Didáctica General</div>
+    <div class="materia" id="edu114" data-prerreq="edu108">EDU-114 Psicología Educativa I</div>
+    <div class="materia" id="mat3" data-prerreq="mat2">Mat Tec. III</div>
+    <div class="materia" id="idioma2" data-prerreq="idioma1">Idioma II</div>
+
+    <h2>Cuarto Semestre</h2>
+    <div class="materia" id="edu115" data-prerreq="edu110,edu111">EDU-115 Investigación Educativa Mixta</div>
+    <div class="materia" id="edu116" data-prerreq="edu112,edu113">EDU-116 Didáctica Socio Crítica</div>
+    <div class="materia" id="edu117" data-prerreq="edu113">EDU-117 Educación de la Diversidad</div>
+    <div class="materia" id="edu118" data-prerreq="edu114">EDU-118 Psicología Educativa II</div>
+    <div class="materia" id="edu119" data-prerreq="edu109">EDU-119 Sociología de la Educación</div>
+    <div class="materia" id="mat4" data-prerreq="mat3">Mat Tec. IV</div>
+    <div class="materia" id="idioma3" data-prerreq="idioma2">Idioma III</div>
+
+    <h2>Quinto Semestre</h2>
+    <div class="materia" id="edu120" data-prerreq="edu115">EDU-120 Diagnóstico Educativo Institucional</div>
+    <div class="materia" id="edu121" data-prerreq="edu116,edu119">EDU-121 Diseño Curricular</div>
+    <div class="materia" id="edu122" data-prerreq="edu112,edu113">EDU-122 Evaluación de Aprendizajes</div>
+    <div class="materia" id="edu123" data-prerreq="edu118">EDU-123 Diagnóstico Psicopedagógico</div>
+    <div class="materia" id="edu124" data-prerreq="edu119">EDU-124 Antropología de la Educación</div>
+    <div class="materia" id="mat5" data-prerreq="mat4">Mat Tec. V</div>
+    <div class="materia" id="idioma4" data-prerreq="idioma3">Idioma IV</div>
+
+    <h2>Sexto Semestre</h2>
+    <div class="materia" id="edu125" data-prerreq="edu120">EDU-125 Sistematización de Experiencias Educativas</div>
+    <div class="materia" id="edu126" data-prerreq="edu121">EDU-126 Desarrollo y Evaluación Curricular</div>
+    <div class="materia" id="edu127" data-prerreq="edu121">EDU-127 Proyectos Educativos Institucionales</div>
+    <div class="materia" id="edu128" data-prerreq="edu123">EDU-128 Neurociencias y Educación</div>
+    <div class="materia" id="edu129" data-prerreq="edu124">EDU-129 Educación Internacionalizada</div>
+    <div class="materia" id="mat6" data-prerreq="mat5">Mat Tec. VI</div>
+    <div class="materia" id="edu700" data-prerreq="edu100,edu101,edu102,edu103,edu104,mat1,edu105,edu106,edu107,edu108,edu109,mat2,idioma1,edu110,edu111,edu112,edu113,edu114,mat3,idioma2,edu115,edu116,edu117,edu118,edu119,mat4,idioma3,edu120,edu121,edu122,edu123,edu124,mat5,idioma4">EDU-700 Práctica Profesional I</div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".materia").forEach(m => {
+      m.addEventListener("click", () => {
+        document.querySelectorAll(".materia").forEach(el => el.classList.remove("resaltado", "tachado"));
+
+        m.classList.add("resaltado", "tachado");
+
+        const prereqs = m.dataset.prerreq.split(",");
+        prereqs.forEach(id => {
+          const el = document.getElementById(id.trim());
+          if (el) el.classList.add("resaltado");
+        });
+      });
+    });
+  </script>
 </body>
 </html>
