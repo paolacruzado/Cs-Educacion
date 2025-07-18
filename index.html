@@ -33,7 +33,7 @@
     }
 
     .materia.habilitada {
-      background-color: #3b83bd;
+      background-color: #3b83bd !Important;
       font-weight: bold;
     }
 
@@ -67,7 +67,59 @@
   <script>
     // ... El contenido del script se mantiene igual ...
 
-    const materias = [...]; // aquí iría tu array de materias completo
+    const materias = [
+      { id: "edu100", nombre: "EDU-100 Fundamentos de la Investigación", prereq: [], semestre: 1 },
+      { id: "edu101", nombre: "EDU-101 Estadística Educativa", prereq: [], semestre: 1 },
+      { id: "edu102", nombre: "EDU-102 Epistemología de la Educación", prereq: [], semestre: 1 },
+      { id: "edu103", nombre: "EDU-103 Desarrollo Humano y Educación de la Niñez y la Adolescencia", prereq: [], semestre: 1 },
+      { id: "edu104", nombre: "EDU-104 Historia de la Educación", prereq: [], semestre: 1 },
+      { id: "mat1", nombre: "Mat Tec. I", prereq: [], semestre: 1 },
+
+      { id: "edu105", nombre: "EDU-105 Investigación Educativa Cuantitativa", prereq: ["edu100", "edu101"], semestre: 2 },
+      { id: "edu106", nombre: "EDU-106 Estadística Educativa II", prereq: ["edu101"], semestre: 2 },
+      { id: "edu107", nombre: "EDU-107 Filosofía de la Educación", prereq: ["edu102"], semestre: 2 },
+      { id: "edu108", nombre: "EDU-108 Desarrollo Humano y Educación de la Juventud y el Adulto", prereq: ["edu103"], semestre: 2 },
+      { id: "edu109", nombre: "EDU-109 Legislación Educativa y Aplicada", prereq: ["edu104"], semestre: 2 },
+      { id: "mat2", nombre: "Mat Tec. II", prereq: ["mat1"], semestre: 2 },
+      { id: "idioma1", nombre: "Idioma I", prereq: [], semestre: 2 },
+
+      { id: "edu110", nombre: "EDU-110 Investigación Educativa Cualitativa", prereq: ["edu105"], semestre: 3 },
+      { id: "edu111", nombre: "EDU-111 Informática aplicada a la Investigación", prereq: ["edu105", "edu106"], semestre: 3 },
+      { id: "edu112", nombre: "EDU-112 Pedagogía", prereq: ["edu107"], semestre: 3 },
+      { id: "edu113", nombre: "EDU-113 Didáctica General", prereq: ["edu107"], semestre: 3 },
+      { id: "edu114", nombre: "EDU-114 Psicología Educativa I", prereq: ["edu108"], semestre: 3 },
+      { id: "mat3", nombre: "Mat Tec. III", prereq: ["mat2"], semestre: 3 },
+      { id: "idioma2", nombre: "Idioma II", prereq: ["idioma1"], semestre: 3 },
+
+      { id: "edu115", nombre: "EDU-115 Investigación Educativa Mixta", prereq: ["edu110", "edu111"], semestre: 4 },
+      { id: "edu116", nombre: "EDU-116 Didáctica Socio Crítica", prereq: ["edu112", "edu113"], semestre: 4 },
+      { id: "edu117", nombre: "EDU-117 Educación de la Diversidad", prereq: ["edu113"], semestre: 4 },
+      { id: "edu118", nombre: "EDU-118 Psicología Educativa II", prereq: ["edu114"], semestre: 4 },
+      { id: "edu119", nombre: "EDU-119 Sociología de la Educación", prereq: ["edu109"], semestre: 4 },
+      { id: "mat4", nombre: "Mat Tec. IV", prereq: ["mat3"], semestre: 4 },
+      { id: "idioma3", nombre: "Idioma III", prereq: ["idioma2"], semestre: 4 },
+
+      { id: "edu120", nombre: "EDU-120 Diagnóstico Educativo Institucional", prereq: ["edu115"], semestre: 5 },
+      { id: "edu121", nombre: "EDU-121 Diseño Curricular", prereq: ["edu116", "edu119"], semestre: 5 },
+      { id: "edu122", nombre: "EDU-122 Evaluación de Aprendizajes", prereq: ["edu112", "edu113"], semestre: 5 },
+      { id: "edu123", nombre: "EDU-123 Diagnóstico Psicopedagógico", prereq: ["edu118"], semestre: 5 },
+      { id: "edu124", nombre: "EDU-124 Antropología de la Educación", prereq: ["edu119"], semestre: 5 },
+      { id: "mat5", nombre: "Mat Tec. V", prereq: ["mat4"], semestre: 5 },
+      { id: "idioma4", nombre: "Idioma IV", prereq: ["idioma3"], semestre: 5 },
+
+      { id: "edu125", nombre: "EDU-125 Sistematización de Experiencias Educativas", prereq: ["edu120"], semestre: 6 },
+      { id: "edu126", nombre: "EDU-126 Desarrollo y Evaluación Curricular", prereq: ["edu121"], semestre: 6 },
+      { id: "edu127", nombre: "EDU-127 Proyectos Educativos Institucionales", prereq: ["edu121"], semestre: 6 },
+      { id: "edu128", nombre: "EDU-128 Neurociencias y Educación", prereq: ["edu123"], semestre: 6 },
+      { id: "edu129", nombre: "EDU-129 Educación Internacionalizada", prereq: ["edu124"], semestre: 6 },
+      { id: "mat6", nombre: "Mat Tec. VI", prereq: ["mat5"], semestre: 6 },
+      {
+        id: "edu700",
+        nombre: "EDU-700 Práctica Profesional I",
+        prereq: materias => materias.filter(m => m.semestre <= 5).map(m => m.id),
+        semestre: 6
+      }
+    ];
 
     const aprobadas = new Set();
     const contenedor = document.getElementById('contenedor-materias');
